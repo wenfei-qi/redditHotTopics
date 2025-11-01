@@ -2,7 +2,7 @@ import type { RedditResponse, SimplifiedTopic } from '../types/reddit.js';
 import { generateTags } from './tagGenerator.js';
 
 const REDDIT_BASE_URL = 'https://www.reddit.com/r/answers';
-const USER_AGENT = 'Mozilla/5.0 (compatible; RedditAnswersTracker/1.0)';
+const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
 export type SortOption = 'hot' | 'new' | 'top' | 'rising';
 export type TimeFilter = 'hour' | 'day' | 'week' | 'month' | 'year' | 'all';
@@ -52,6 +52,12 @@ export class RedditService {
       const response = await fetch(url, {
         headers: {
           'User-Agent': USER_AGENT,
+          'Accept': 'application/json',
+          'Accept-Language': 'en-US,en;q=0.9',
+          'Accept-Encoding': 'gzip, deflate, br',
+          'DNT': '1',
+          'Connection': 'keep-alive',
+          'Upgrade-Insecure-Requests': '1',
         },
       });
 
