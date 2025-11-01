@@ -15,8 +15,7 @@ services:
   # Frontend Static Site
   - type: web
     name: reddit-hot-topics-frontend
-    env: static
-    plan: free
+    runtime: static
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./frontend/dist
     envVars:
